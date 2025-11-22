@@ -1,0 +1,99 @@
+version: "3.1"
+nlu:
+- intent: saludo
+  examples: |
+    - hola
+    - buenos días
+    - buenas tardes
+    - qué tal
+    - hola, necesito ayuda
+    - hola, soporte
+
+- intent: despedida
+  examples: |
+    - adiós
+    - hasta luego
+    - nos vemos
+    - gracias, eso era todo
+    - muchas gracias, bye
+
+- intent: agradecimiento
+  examples: |
+    - gracias
+    - muchas gracias
+    - perfecto, gracias
+    - excelente, gracias por el apoyo
+    - me ayudaste mucho
+
+- intent: afirmacion
+  examples: |
+    - sí
+    - correcto
+    - así es
+    - exacto
+    - de acuerdo
+    - claro que sí
+
+- intent: negacion
+  examples: |
+    - no
+    - para nada
+    - todavía no
+    - no es eso
+    - no me funcionó
+
+- intent: ayuda
+  examples: |
+    - qué puedes hacer
+    - cómo me puedes ayudar
+    - necesito ayuda
+    - no sé cómo reportar un problema
+    - estoy perdido, ayuda
+
+- intent: reportar_incidente
+  examples: |
+    - tengo un problema con el POS
+    - el sistema no abre
+    - la impresora no imprime
+    - no tengo internet en la sucursal
+    - el sistema está muy lento
+    - no puedo acceder a mi usuario
+    - no puedo entrar al sistema de Banco Azteca
+    - mi computadora no enciende
+    - la pantalla se queda en negro
+    - el correo no sincroniza
+
+- intent: consultar_estado_ticket
+  examples: |
+    - quiero saber el estado de mi ticket
+    - cómo va mi reporte
+    - ya revisaron el incidente que reporté
+    - me puedes decir si ya está atendido mi caso
+    - en qué estado está mi caso de soporte
+
+- intent: fuera_de_alcance
+  examples: |
+    - cuéntame un chiste
+    - quién ganó el partido ayer
+    - cómo está el clima
+    - recomiéndame una película
+
+- intent: enviar_carnet
+  examples: |
+    - aquí está mi carnet
+    - te envío mi identificación
+    - te adjunto la foto de mi carnet
+    - ya te mandé la foto del gafete
+    - ya te envié la foto de mi identificación
+
+- intent: describir_problema
+  examples: |
+    - el equipo no deja cobrar
+    - la pantalla se queda en negro
+    - la impresora no imprime el ticket
+    - el scanner no lee el código
+    - no puedo acceder al sistema
+    - el internet está muy lento
+    - el sistema se queda cargando
+    - el teclado no responde
+    - el mouse se congela

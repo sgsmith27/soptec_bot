@@ -1,0 +1,63 @@
+version: "3.1"
+
+rules:
+
+  # --- SALUDO: arrancar flujo pidiendo carnet ---
+  - rule: flujo de saludo y pedir carnet
+    steps:
+      - intent: saludo
+      - action: utter_pedir_carnet
+
+  # --- Despedida sencilla ---
+  - rule: responder despedida
+    steps:
+      - intent: despedida
+      - action: utter_despedida
+
+  # --- Agradecimientos ---
+  - rule: responder agradecimientos
+    steps:
+      - intent: agradecimiento
+      - action: utter_agradecimiento
+
+  # --- Ayuda genérica ---
+  - rule: responder ayuda
+    steps:
+      - intent: ayuda
+      - action: utter_ayuda
+
+  # --- Fuera de alcance ---
+  - rule: manejar fuera de alcance
+    steps:
+      - intent: fuera_de_alcance
+      - action: utter_fuera_de_alcance
+
+  # --- Procesar carnet, verificar identidad e iniciar formulario si autenticado ---
+  - rule: procesar carnet, autenticar e iniciar incidente
+    steps:
+      - intent: enviar_carnet
+      - action: action_verificar_identidad
+      - slot_was_set:
+          - authenticated: true
+      - action: incidente_form
+      - active_loop: incidente_form
+
+  #--Finalizar formulario con opcion de abrir un nuevo reporte
+  - rule: finalizar formulario de incidente
+    condition:
+      - active_loop: incidente_form
+    steps:
+      - action: incidente_form
+      - active_loop: null
+      - action: action_confirmar_reporte
+      - action: utter_ofrecer_otro_incidente
+
+  - rule: usuario quiere reportar otro incidente
+    steps:
+      - intent: afirmacion
+      - action: action_start_nuevo_incidente
+
+  - rule: usuario no quiere reportar otro incidente
+    steps:
+      - intent: negacion
+      - action: utter_despedida_final
